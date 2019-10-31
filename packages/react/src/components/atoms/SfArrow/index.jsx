@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import '@storefront-ui/shared/styles/components/SfArrow.scss'
 
 export const SfArrow = ({ classname, on, children }) => {
