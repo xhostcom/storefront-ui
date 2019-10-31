@@ -12,7 +12,7 @@ storiesOf(" |Introduction", module)
     }
   })
   .add("How to use Storybook", () => 
-    <div class="intro">
+    <div className="intro">
       <h1>StorefrontUI - Customization-first component library</h1>
       <p>
         Welcome to our storybook!
@@ -35,7 +35,7 @@ storiesOf(" |Introduction", module)
           <pre>import "@storefront-ui/react/dist/css/all.scss";</pre>
         </li>
         <li> It's done! Now you can import and use any of the components: 
-          {/* <pre> import { SfComponentName } from "@storefront-ui/vue"</pre> */}
+          {/* <pre> import { SfComponentName } from "@storefront-ui/react"</pre> */}
         </li>
         <li> You can find detailed information about every component inside each component's story. </li>
       </ol>

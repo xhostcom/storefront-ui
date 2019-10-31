@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 // import { action } from "@storybook/addon-actions";
 import { withKnobs, optionsKnob as options, text } from "@storybook/addon-knobs";
-import { Button } from "./";
+import { SfButton } from "./";
 import classnames from 'classnames';
 
 storiesOf("Atoms|Button", module)
@@ -11,7 +11,7 @@ storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add(
     "Primary",
-    () => <Button classname={classnames(
+    () => <SfButton classname={classnames(
       "sf-button",
       options(
         "CSS modifier",
@@ -28,6 +28,6 @@ storiesOf("Atoms|Button", module)
         "",
         { display: "multi-select" }
       )
-    )}>{text("Inner text", "Shop now")}</Button>
+    )}>{text("Inner text", "Shop now")}</SfButton>
   );
 
