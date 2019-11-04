@@ -5,7 +5,7 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { SfArrow } from "./";
 import classnames from 'classnames';
-import { SfIcon } from '../SfIcon';
+import { SfIcon } from '../';
 
 storiesOf("Atoms|Arrow", module)
 

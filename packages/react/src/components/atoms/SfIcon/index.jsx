@@ -4,7 +4,6 @@ import { icons } from "@storefront-ui/shared/icons/icons";
 import classnames from 'classnames';
 
 export const SfIcon = (props) => {
-console.log(props)
   const ref = useRef(null)
   useEffect(() => {
     updateProps()
@@ -58,7 +57,7 @@ console.log(props)
   }
 
   return (
-    <div className={classnames('sf-icon', iconColor(), iconSize())} ref={ref}>
+    <div className={classnames(props.classname, 'sf-icon', iconColor(), iconSize())} ref={ref}>
       {!props.children && <svg className="sf-icon-path" viewBox={iconViewBox()} preserveAspectRatio="none">
           <path d={iconPaths()} style={{height: '100%'}}/>
       </svg>}
