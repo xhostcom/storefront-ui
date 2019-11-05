@@ -67,8 +67,8 @@ export const SfIcon = (props) => {
 }
 
 SfIcon.defaultProps = {
-  icon: "home",
-  color: "primary",
-  size: "xxs",
+  icon: "",
+  color: "",
+  size: "",
   viewBox: "0 0 24 24"
 }

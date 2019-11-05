@@ -1,9 +1,10 @@
 import React from "react";
+import classnames from "classnames";
 import '@storefront-ui/shared/styles/components/SfButton.scss'
-
+;
 export const SfButton = ({ classname, children, on }) => {
   return (
-    <button className={classname} onClick={on}>
+    <button className={classnames(classname, "sf-button")} onClick={on}>
       {children}
     </button>
   );

@@ -1,9 +1,10 @@
 import React from "react";
-import '@storefront-ui/shared/styles/components/SfArrow.scss'
+import classnames from "classnames";
+import '@storefront-ui/shared/styles/components/SfArrow.scss';
 
 export const SfArrow = ({ classname, on, children }) => {
 return (
-  <div className={classname}>
+  <div className={classnames(classname, "sf-arrow")}>
     <button onClick={on} className="sf-arrow__button">
       {!children && <svg className="sf-arrow__icon" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M24 7L2 7L2 5L24 5L24 7Z"/>

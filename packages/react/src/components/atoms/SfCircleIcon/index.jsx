@@ -1,11 +1,11 @@
 import React from "react";
 import { SfIcon, SfButton } from "../";
+import classnames from "classnames";
 import '@storefront-ui/shared/styles/components/SfCircleIcon.scss';
 
 export const SfCircleIcon= ({ classname, icon, sizeIcon, colorIcon, children }) => {
-  console.log(icon)
   return (
-    <SfButton classname={classname}>
+    <SfButton classname={classnames(classname, "sf-circle-icon")}>
       {!children && <SfIcon
         classname="sf-circle-icon__icon"
         icon={icon}

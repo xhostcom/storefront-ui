@@ -10,7 +10,6 @@ storiesOf("Atoms|Badge", module)
   .add(
     "Primary",
     () => <SfBadge classname={classnames(
-      "sf-badge",
       options(
         "CSS modifier",
         {

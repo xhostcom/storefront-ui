@@ -14,7 +14,6 @@ storiesOf("Atoms|CircleIcon", module)
     "Primary",
     () => <SfCircleIcon classname={classnames(
       "sf-button",
-      "sf-circle-icon",
       options(
         "CSS modifier",
         {
@@ -38,7 +37,6 @@ storiesOf("Atoms|CircleIcon", module)
     "Children",
     () => <SfCircleIcon classname={classnames(
       "sf-button",
-      "sf-circle-icon",
       options(
         "CSS modifier",
         {

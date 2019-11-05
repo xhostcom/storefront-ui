@@ -12,7 +12,6 @@ storiesOf("Atoms|Button", module)
   .add(
     "Primary",
     () => <SfButton classname={classnames(
-      "sf-button",
       options(
         "CSS modifier",
         {

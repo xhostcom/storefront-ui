@@ -13,7 +13,6 @@ storiesOf("Atoms|Arrow", module)
   .add(
     "Primary",
     () => <SfArrow classname={classnames(
-      "sf-arrow",
       options(
         "CSS modifier",
         {
@@ -30,7 +29,6 @@ storiesOf("Atoms|Arrow", module)
   )
   .add("Icon",
     () => <SfArrow classname={classnames(
-      "sf-arrow",
       options(
         "CSS modifier",
         {
