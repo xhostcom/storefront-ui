@@ -10,3 +10,5 @@ export * from "./SfHeading";
 export * from "./SfDivider";
 export * from "./SfPrice";
 export * from "./SfChevron";
+export * from "./SfProperty";
+export * from "./SfRating";
