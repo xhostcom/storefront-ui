@@ -14,7 +14,7 @@ module.exports = async ({ config, mode }) => {
   
   config.module.rules.push({
     test: /\.(sa|sc|c)ss$/,
-    use: [
+    loaders: [
       'style-loader',
       'css-loader',
       'sass-loader'

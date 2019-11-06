@@ -1,19 +1,12 @@
 import React from "react";
-import '@storefront-ui/shared/styles/components/SfOverlay.scss'
+import { CSSTransition } from 'react-transition-group';
+import "../../utilities/transitions/transitions.scss";
+import '@storefront-ui/shared/styles/components/SfOverlay.scss';
 
 export const SfOverlay = ({ transition, visible }) => {
   return (
-    <>
-      {visible && <div
-        className="sf-overlay"
-      />}
-    </>
+    <CSSTransition in={visible} classNames={transition} timeout={300} unmountOnExit>
+      <div className="sf-overlay" />
+    </CSSTransition>
   )
-  // return (
-  //   <transition name={transition}>
-  //     {visible && <div
-  //       classNAme="sf-overlay"
-  //     />}
-  //   </transition>
-  // )
 }

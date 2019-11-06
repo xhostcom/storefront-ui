@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import lozad from 'lozad';
-import '@storefront-ui/shared/styles/components/SfImage.scss'
+import { CSSTransition } from 'react-transition-group';
+import "../../utilities/transitions/transitions.scss";
+import '@storefront-ui/shared/styles/components/SfImage.scss';
 
 export const SfImage = (props) => {
   const ref = useRef(null)
@@ -29,13 +31,11 @@ export const SfImage = (props) => {
       onMouseOver={() => hoverHandler(true)}
       onMouseLeave={() => hoverHandler(false)}
     >
-      {/* <transition :name="transition"> */}
-      {overlay && loaded && props.children &&
+      <CSSTransition in={overlay && loaded && props.children} classNames="fade" timeout={300} unmountOnExit>
         <div className="sf-image__overlay">
           {props.children}
         </div>
-      }
-      {/* </transition> */}
+      </CSSTransition>
 
       {props.lazy
         ?

@@ -1,0 +1,23 @@
+$transition-fade: opacity .15s linear;
+$transition-base: $transition-fade;
+$transition-slide: all .25s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+$transition-slide-transform-size: 400px;
+
+// mixins
+
+@mixin fade {
+  &-enter {
+    opacity: 0;
+  }
+  &-enter-active {
+    opacity: 1;
+    transition: $transition-fade;
+  }
+  &-exit {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+    transition: $transition-fade
+  }
+}
