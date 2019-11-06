@@ -1,7 +1,5 @@
 import React from "react";
-
 import { storiesOf } from "@storybook/react";
-// import { action } from "@storybook/addon-actions";
 import { withKnobs, optionsKnob as options, text } from "@storybook/addon-knobs";
 import { SfButton } from "./";
 import classnames from 'classnames';
