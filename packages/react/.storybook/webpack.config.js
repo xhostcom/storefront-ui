@@ -7,6 +7,12 @@ module.exports = async ({ config, mode }) => {
 
   // Make whatever fine-grained changes you need
   config.module.rules.push({
+    test: /\.stories\.js?$/,
+    loaders: [require.resolve("@storybook/source-loader")],
+    enforce: "pre"
+  });
+  
+  config.module.rules.push({
     test: /\.(sa|sc|c)ss$/,
     use: [
       'style-loader',

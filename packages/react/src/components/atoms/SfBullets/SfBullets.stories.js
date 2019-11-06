@@ -2,7 +2,6 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, number } from "@storybook/addon-knobs";
 import { SfBullets } from "./";
-import { SfIcon } from "../";
 
 storiesOf("Atoms|Bullets", module)
 

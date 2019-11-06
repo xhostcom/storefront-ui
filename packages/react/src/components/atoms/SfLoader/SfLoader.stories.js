@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs";
-// import classnames from 'classnames';
 import { SfLoader } from './';
 import { SfImage } from '../';
 
