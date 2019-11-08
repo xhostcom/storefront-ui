@@ -5,7 +5,7 @@ import '@storefront-ui/shared/styles/components/SfHeading.scss'
 export const SfHeading = ({ classname, level, subtitle, title }) => {
   const CustomTag = `h${level}`
   return (
-    <header class={classnames(classname, "sf-heading")}>
+    <header className={classnames(classname, "sf-heading")}>
       {title && <CustomTag className="sf-heading__title">
         { title }
       </CustomTag>}
