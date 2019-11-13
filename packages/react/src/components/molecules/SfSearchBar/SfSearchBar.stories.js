@@ -8,12 +8,13 @@ const SearchBarWrapper = (props) => {
   const [value, setValue] = useState(undefined)
 
   return <SfSearchBar
-  classname={props.classname}
+    classname={props.classname}
     value={value}
     placeholder={props.placeholder}
     icon={props.icon}
     clearIcon={props.clearIcon}
     onInputChange={(ev) => setValue(ev.target.value)}
+    onSearchClick={(ev) => { console.log('search', value), setValue("") }}
   />
 }
 
@@ -25,7 +26,7 @@ storiesOf("Molecules|SearchBar", module)
       () => <SearchBarWrapper
       placeholder={text("placeholder (prop)", "Search for...")}
       icon={select("icon (prop)", [true, false])}
-      // clearIcon={text("clearIcon (prop)", "assets/storybook/plus.svg")}
+      clearIcon={text("clearIcon (prop)", "assets/storybook/plus.svg")}
     />
   )
   .add(
