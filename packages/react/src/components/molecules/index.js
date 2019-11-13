@@ -8,3 +8,4 @@ export * from "./SfSection";
 export * from "./SfSelect";
 export * from "./SfCharacteristic";
 export * from "./SfProductOption";
+export * from "./SfRadio";
