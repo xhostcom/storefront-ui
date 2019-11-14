@@ -9,3 +9,7 @@ export * from "./SfSelect";
 export * from "./SfCharacteristic";
 export * from "./SfProductOption";
 export * from "./SfRadio";
+export * from "./SfMenuItem";
+export * from "./SfFilter";
+export * from "./SfCounter";
+export * from "./SfGallery";
