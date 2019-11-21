@@ -15,3 +15,4 @@ export * from "./SfCounter";
 export * from "./SfGallery";
 export * from "./SfSteps";
 export * from "./SfReview";
+export * from "./SfModal";
