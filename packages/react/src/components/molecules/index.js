@@ -13,3 +13,5 @@ export * from "./SfMenuItem";
 export * from "./SfFilter";
 export * from "./SfCounter";
 export * from "./SfGallery";
+export * from "./SfSteps";
+export * from "./SfReview";
