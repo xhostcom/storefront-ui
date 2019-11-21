@@ -22,7 +22,7 @@ export const SfSteps = ({ steps, children, onStepChange, canGoBack, active }) =>
         current: idx === active
       }
     }))
-  }, [active])
+  }, [active, steps])
 
   const onClickHandler = (index) => {
     if (!step[index].disabled) {
