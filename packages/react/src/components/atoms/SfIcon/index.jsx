@@ -57,7 +57,7 @@ export const SfIcon = (props) => {
   }
 
   return (
-    <div className={classnames(props.classname, 'sf-icon', iconColor(), iconSize())} ref={ref} style={props.style}>
+    <div className={classnames(props.classname, 'sf-icon', iconColor(), iconSize())} ref={ref} style={props.style} onClick={props.onClick}>
       {!props.children && <svg className="sf-icon-path" viewBox={iconViewBox()} preserveAspectRatio="none">
           {iconPaths().map((path, idx) => <path key={idx} d={path} style={{height: '100%'}}/>)}
       </svg>}
