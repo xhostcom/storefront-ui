@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { SfIcon } from '../../atoms';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfSearchBar.scss';
 
 export const SfSearchBar = ({ classname, placeholder, value, icon, clearIcon, onInputChange, onSearchClick }) => {
@@ -53,6 +54,11 @@ export const SfSearchBar = ({ classname, placeholder, value, icon, clearIcon, on
       </span>
     </div>
   );
+};
+
+SfSearchBar.propTypes = {
+  placeholder: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 SfSearchBar.defaultProps = {

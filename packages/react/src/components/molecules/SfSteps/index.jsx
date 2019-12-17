@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfSteps.scss';
 
 export const SfSteps = ({ steps, children, onStepChange, canGoBack, active }) => {
@@ -72,6 +73,12 @@ export const SfSteps = ({ steps, children, onStepChange, canGoBack, active }) =>
       <div className="sf-steps__content">{children}</div>
     </div>
   );
+};
+
+SfSteps.propTypes = {
+  steps: PropTypes.array,
+  active: PropTypes.number,
+  canGoBack: PropTypes.bool,
 };
 
 SfSteps.defaultProps = {

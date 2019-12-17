@@ -1,6 +1,7 @@
 import React from 'react';
 import { SfIcon } from '../../atoms';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfPagination.scss';
 
 export const SfPagination = ({ current, total, visible, onClick, iconPrev, iconNext }) => {
@@ -127,6 +128,12 @@ export const SfPagination = ({ current, total, visible, onClick, iconPrev, iconN
       </ul>
     </nav>
   );
+};
+
+SfPagination.propTypes = {
+  current: PropTypes.number,
+  total: PropTypes.number,
+  visible: PropTypes.number,
 };
 
 SfPagination.defaultProps = {

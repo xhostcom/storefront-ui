@@ -1,11 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfArrow.scss';
 
-export const SfArrow = ({ classname, on, children }) => {
+export const SfArrow = ({ classname, onclick, children }) => {
   return (
     <div className={classnames(classname, 'sf-arrow')}>
-      <button onClick={on} className="sf-arrow__button">
+      <button onClick={onclick} className="sf-arrow__button">
         {!children && (
           <svg className="sf-arrow__icon" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 7L2 7L2 5L24 5L24 7Z" />
@@ -16,4 +17,9 @@ export const SfArrow = ({ classname, on, children }) => {
       </button>
     </div>
   );
+};
+
+SfArrow.propTypes = {
+  classname: PropTypes.string,
+  onclick: PropTypes.func,
 };

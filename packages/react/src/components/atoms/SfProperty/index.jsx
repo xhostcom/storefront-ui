@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfProperty.scss';
 
 export const SfProperty = ({ classname, name, value }) => {
@@ -11,6 +12,11 @@ export const SfProperty = ({ classname, name, value }) => {
       {value && typeof value !== 'string' && <>{value}</>}
     </div>
   );
+};
+
+SfProperty.propTypes = {
+  name: PropTypes.string,
+  valye: PropTypes.string,
 };
 
 SfProperty.defaultProps = {

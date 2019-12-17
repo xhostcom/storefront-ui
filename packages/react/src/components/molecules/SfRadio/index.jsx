@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfRadio.scss';
 
 export const SfRadio = ({
@@ -53,6 +54,16 @@ export const SfRadio = ({
       </label>
     </div>
   );
+};
+
+SfRadio.propTypes = {
+  name: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  value: PropTypes.string,
+  selected: PropTypes.string,
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
 };
 
 SfRadio.defaultProps = {

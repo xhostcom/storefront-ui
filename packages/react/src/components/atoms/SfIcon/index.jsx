@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
-import '@storefront-ui/shared/styles/components/SfIcon.scss';
 import { icons } from '@storefront-ui/shared/icons/icons';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import '@storefront-ui/shared/styles/components/SfIcon.scss';
 
 export const SfIcon = (props) => {
   const ref = useRef(null);
@@ -71,9 +72,37 @@ export const SfIcon = (props) => {
   );
 };
 
+SfIcon.propTypes = {
+  icon: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  color: PropTypes.string,
+  size: PropTypes.string,
+  viewBox: PropTypes.string,
+};
+
 SfIcon.defaultProps = {
+  /**
+   * Icon SVG path(s)
+   * It can be single SVG path (string) or array of SVG paths or icon name
+   * from our icons list (such as 'added_to_cart`)
+   */
   icon: '',
+  /**
+   * Custom color of the icon
+   * It can be according to our standard colors, or `#fff` or `rgb(255,255,255)` or nothing.
+   * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
+   */
   color: '',
+  /**
+   * Custom size of the icon
+   * It can be our standard sizes, or `12px` or `1.2rem` or nothing.
+   * Standard sizes: `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xl3`, `xl4`.
+   */
   size: '',
+  /**
+   * Custom viewBox size of the icon
+   * It should be according to the standard `"min-x min-y width height"`.
+   * By default it will be `0 0 24 24`. If you use our icons, you don't need to pass this prop at all.
+   * Recommedations: try to get your SVG designed with our default viewBox value and reduce the number of props passed to the component.
+   */
   viewBox: '0 0 24 24',
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfInput.scss';
 
@@ -14,7 +15,7 @@ export const SfInput = ({
   required,
   disabled,
   value,
-  on,
+  onchange,
   ...restProps
 }) => {
   return (
@@ -30,14 +31,12 @@ export const SfInput = ({
     >
       <div style={{ position: 'relative' }}>
         <input
-          v-bind="$attrs"
-          v-on="listeners"
           value={value}
           required={required}
           disabled={disabled}
           name={name}
           id={id}
-          onChange={on}
+          onChange={onchange}
           {...restProps}
         />
         <span className="sf-input__bar"></span>
@@ -58,12 +57,49 @@ export const SfInput = ({
   );
 };
 
+SfInput.propTypes = {
+  classname: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  name: PropTypes.string,
+  valid: PropTypes.bool,
+  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onchange: PropTypes.func,
+};
+
 SfInput.defaultProps = {
+  /**
+   * Current input value
+   */
+  value: '',
+  /**
+   * Form input label
+   */
   label: null,
+  /**
+   * Error message value of form input. It will be appeared if `valid` is `true`.
+   */
   errorMessage: null,
+  /**
+   * Form input name
+   */
   name: null,
+  /**
+   * Form input id
+   */
   id: null,
+  /**
+   * Native input required attribute
+   */
   required: false,
+  /**
+   * Native input disabled attribute
+   */
   disabled: false,
+  /**
+   * Validate value of form input
+   */
   valid: undefined,
 };

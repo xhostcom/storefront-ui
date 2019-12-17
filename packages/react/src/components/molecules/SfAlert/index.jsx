@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { SfIcon } from '../../atoms';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfAlert.scss';
 
 export const SfAlert = ({ classname, message, icon, type }) => {
@@ -24,7 +25,18 @@ export const SfAlert = ({ classname, message, icon, type }) => {
   );
 };
 
+SfAlert.propTypes = {
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  type: PropTypes.oneOf(['secondary', 'info', 'success', 'warning', 'danger']),
+};
+
 SfAlert.defaultProps = {
+  /**
+   * Message that will be displayed in Alert.
+   */
   message: '',
+  /**
+   * Alert type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
+   */
   type: 'secondary',
 };

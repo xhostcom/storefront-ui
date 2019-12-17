@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfFilter.scss';
 
 export const SfFilter = ({ color, label, count, selected }) => {
@@ -15,6 +16,13 @@ export const SfFilter = ({ color, label, count, selected }) => {
       {count && <div className="sf-filter__count">{count}</div>}
     </div>
   );
+};
+
+SfFilter.propTypes = {
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  count: PropTypes.string,
+  color: PropTypes.string,
+  selected: PropTypes.bool,
 };
 
 SfFilter.defaultProps = {

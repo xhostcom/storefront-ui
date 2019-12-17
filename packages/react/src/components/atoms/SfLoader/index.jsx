@@ -1,5 +1,6 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfLoader.scss';
 
@@ -39,4 +40,12 @@ export const SfLoader = (props) => {
       </CSSTransition>
     </div>
   );
+};
+
+SfLoader.propTypes = {
+  loading: PropTypes.bool,
+};
+
+SfLoader.defaultProps = {
+  loading: true,
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { SfIcon } from '../../atoms';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfCharacteristic.scss';
 
 export const SfCharacteristic = ({ title, colorIcon, description, icon, sizeIcon, iconChildren, text }) => {
@@ -22,6 +23,14 @@ export const SfCharacteristic = ({ title, colorIcon, description, icon, sizeIcon
       </div>
     </div>
   );
+};
+
+SfCharacteristic.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  colorIcon: PropTypes.string,
+  sizeIcon: PropTypes.string,
+  icon: PropTypes.string,
 };
 
 SfCharacteristic.defaultProps = {

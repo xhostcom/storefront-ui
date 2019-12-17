@@ -2,6 +2,7 @@ import React from 'react';
 import { SfIcon } from '../../atoms';
 import { CSSTransition } from 'react-transition-group';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfNotification.scss';
 
@@ -28,7 +29,7 @@ export const SfNotification = ({ visible, title, type, action, transition, messa
         {icon && <SfIcon classname="sf-notification__icon" icon={icon()} size="lg" color="white" v-if="!!icon" />}
         <div>
           {title && <div className="sf-notification__title">{title}</div>}
-          {message && <span class="sf-notification__message">{message}</span>}
+          {message && <span className="sf-notification__message">{message}</span>}
           {action && (
             <button className="sf-notification__action" onClick={onAction}>
               {action}
@@ -39,6 +40,15 @@ export const SfNotification = ({ visible, title, type, action, transition, messa
       </div>
     </CSSTransition>
   );
+};
+
+SfNotification.propTypes = {
+  visible: PropTypes.bool,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  action: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  type: PropTypes.oneOf(['secondary', 'info', 'success', 'warning', 'danger']),
+  transition: PropTypes.oneOf(['fade', 'slide', 'collapse', 'fade-slide', 'fade-collapse']),
 };
 
 SfNotification.defaultProps = {
@@ -61,8 +71,6 @@ SfNotification.defaultProps = {
   /**
    * Notification type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
    */
-  type: function(value) {
-    return ['secondary', 'info', 'success', 'warning', 'danger'].includes(value);
-  },
+  type: 'secondary',
   transition: 'fade',
 };

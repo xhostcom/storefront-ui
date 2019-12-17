@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfSelect.scss';
 
 export const SfSelectOption = ({ classname, children, selected, value, ...restProps }) => {
@@ -15,6 +16,10 @@ export const SfSelectOption = ({ classname, children, selected, value, ...restPr
       {children}
     </li>
   );
+};
+
+SfSelectOption.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 SfSelectOption.defaultProps = {

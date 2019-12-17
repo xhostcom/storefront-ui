@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { SfSelectOption } from './_internal/index';
 import { CSSTransition } from 'react-transition-group';
 import { SfProductOption } from '../SfProductOption';
+import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfSelect.scss';
 
@@ -103,6 +104,15 @@ export const SfSelect = ({ classname, label, options, selected, errorMessage, si
       )}
     </div>
   );
+};
+
+SfSelect.propTypes = {
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  size: PropTypes.number,
+  required: PropTypes.bool,
+  valid: PropTypes.bool,
+  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 SfSelect.defaultProps = {

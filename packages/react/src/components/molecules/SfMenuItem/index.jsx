@@ -1,6 +1,6 @@
 import React from 'react';
 import { SfIcon } from '../../atoms';
-import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfMenuItem.scss';
 
 export const SfMenuItem = ({ label, count, icon }) => {
@@ -11,6 +11,12 @@ export const SfMenuItem = ({ label, count, icon }) => {
       {icon && <SfIcon icon={icon} className="sf-menu-item__mobile-nav-icon" size="14px" />}
     </div>
   );
+};
+
+SfMenuItem.propTypes = {
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  count: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 SfMenuItem.defaultProps = {

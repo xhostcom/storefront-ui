@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfOptions.scss';
 
@@ -71,10 +72,16 @@ export const SfOptions = ({ label, value, type, options, selected, onSelect }) =
   );
 };
 
+SfOptions.propTypes = {
+  options: PropTypes.array,
+  type: PropTypes.oneOf(['text', 'color', 'image']),
+  label: PropTypes.string,
+  value: PropTypes.string,
+};
+
 SfOptions.defaultProps = {
   options: [],
   type: 'text',
-  // validator: val => ["text", "color", "image"].includes(val)
   label: null,
   value: null,
 };

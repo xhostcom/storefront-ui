@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SfIcon } from '../../atoms';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfCounter.scss';
 
 export const SfCounter = ({
@@ -41,16 +42,6 @@ export const SfCounter = ({
   const keypress = (e) => {
     if (e && e.key) {
       switch (e.key) {
-        // case "0":
-        // case "1":
-        // case "2":
-        // case "3":
-        // case "4":
-        // case "5":
-        // case "6":
-        // case "7":
-        // case "8":
-        // case "9":
         case 'ArrowUp':
           increase();
           return;
@@ -198,6 +189,18 @@ export const SfCounter = ({
       </div>
     </div>
   );
+};
+
+SfCounter.propTypes = {
+  step: PropTypes.number,
+  autoFill: PropTypes.bool,
+  precision: PropTypes.number,
+  delimiter: PropTypes.string,
+  thousands: PropTypes.string,
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
+  controls: PropTypes.bool,
+  type: PropTypes.string,
 };
 
 SfCounter.defaultProps = {

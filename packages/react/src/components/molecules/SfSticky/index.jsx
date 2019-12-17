@@ -165,5 +165,3 @@ export const SfSticky = ({ children }) => {
     </div>
   );
 };
-
-SfSticky.defaultProps = {};

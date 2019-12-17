@@ -9,7 +9,7 @@ const ModalWrapper = (props) => {
 
   return (
     <>
-      <SfButton on={() => setOpen(true)}>Open modal</SfButton>
+      <SfButton onclick={() => setOpen(true)}>Open modal</SfButton>
       <SfModal
         visible={open}
         cross={props.cross}

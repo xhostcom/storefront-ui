@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SfHeading } from '../../atoms';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfSection.scss';
 
 export const SfSection = ({ classname, children, levelHeading, titleHeading, subtitleHeading }) => {
@@ -21,6 +22,12 @@ export const SfSection = ({ classname, children, levelHeading, titleHeading, sub
       <div className="sf-section__content">{children}</div>
     </section>
   );
+};
+
+SfSection.propTypes = {
+  titleHeading: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  subtitleHeading: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  levelHeading: PropTypes.number,
 };
 
 SfSection.defaultProps = {

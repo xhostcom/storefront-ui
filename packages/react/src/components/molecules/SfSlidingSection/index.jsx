@@ -28,7 +28,9 @@ export const SfSlidingSection = ({ active, mobile, scrollLock, staticContent, sl
     });
     return () => {
       scrollUnlock();
-      hammer.destroy();
+      if (hammer) {
+        hammer.destroy();
+      }
     };
   }, []);
 
@@ -123,5 +125,3 @@ export const SfSlidingSection = ({ active, mobile, scrollLock, staticContent, sl
     </section>
   );
 };
-
-SfSlidingSection.defaultProps = {};

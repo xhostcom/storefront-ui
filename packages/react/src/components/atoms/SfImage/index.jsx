@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import lozad from 'lozad';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfImage.scss';
 
@@ -27,7 +28,12 @@ export const SfImage = (props) => {
 
   return (
     <div className="sf-image" onMouseOver={() => hoverHandler(true)} onMouseLeave={() => hoverHandler(false)}>
-      <CSSTransition in={overlay && loaded && props.children} classNames="fade" timeout={300} unmountOnExit>
+      <CSSTransition
+        in={overlay && loaded && props.children ? true : false}
+        classNames="fade"
+        timeout={300}
+        unmountOnExit
+      >
         <div className="sf-image__overlay">{props.children}</div>
       </CSSTransition>
 
@@ -77,11 +83,38 @@ export const SfImage = (props) => {
   );
 };
 
+SfImage.propTypes = {
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  alt: PropTypes.string,
+  transition: PropTypes.oneOf(['fade', 'slide', 'collapse', 'fade-slide', 'fade-collapse']),
+  lazy: PropTypes.bool,
+  placeholder: PropTypes.string,
+  pictureBreakpoint: PropTypes.number,
+};
+
 SfImage.defaultProps = {
+  /**
+   * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
+   */
   src: () => {},
+  /**
+   * Alt attribute value
+   */
   alt: '',
+  /**
+   * Overlay transition type
+   */
   transition: 'fade',
+  /**
+   * Lazyload
+   */
   lazy: true,
+  /**
+   * Src image placeholder
+   */
   placeholder: '/assets/placeholder.png',
+  /**
+   * Screen width breakpoint for picture tag media query
+   */
   pictureBreakpoint: 576,
 };

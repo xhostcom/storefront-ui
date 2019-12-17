@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SfInput, SfButton } from '../../atoms';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfAddToCart.scss';
 
 export const SfAddToCart = ({ qty, stock, canAddToCart, onAddToCart }) => {
@@ -17,12 +18,12 @@ export const SfAddToCart = ({ qty, stock, canAddToCart, onAddToCart }) => {
 
   return (
     <div className="sf-add-to-cart" data-test="sf-add-to-card">
-      <SfButton on={addToCartHandler} classname="sf-add-to-cart__button" disabled={!canAddToCart}>
+      <SfButton onclick={addToCartHandler} classname="sf-add-to-cart__button" disabled={!canAddToCart}>
         Add to cart
       </SfButton>
       <SfInput
         value={value}
-        on={inputHandler}
+        onchange={inputHandler}
         classname="sf-add-to-cart__select-quantity"
         type="number"
         min="1"
@@ -32,8 +33,24 @@ export const SfAddToCart = ({ qty, stock, canAddToCart, onAddToCart }) => {
   );
 };
 
+SfAddToCart.propTypes = {
+  canAddToCart: PropTypes.bool,
+  stock: PropTypes.number,
+  qty: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+};
+
 SfAddToCart.defaultProps = {
+  /**
+   * Boolean to indicate whether product
+   * can be added to cart
+   */
   canAddToCart: false,
+  /**
+   * Stock quantity of product
+   */
   stock: 1,
+  /**
+   * Selected quantity
+   */
   qty: '1',
 };

@@ -16,7 +16,7 @@ const InputWrapper = (props) => {
       valid={props.valid}
       required={props.required}
       disabled={props.disabled}
-      on={(ev) => setValue(ev.target.value)}
+      onchange={(ev) => setValue(ev.target.value)}
     />
   );
 };

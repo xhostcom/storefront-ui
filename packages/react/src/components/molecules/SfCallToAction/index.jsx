@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { SfButton } from '../../atoms';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfCallToAction.scss';
 
 export const SfCallToAction = ({ classname, title, description, background, buttonText, image, on, customButton }) => {
@@ -21,6 +22,14 @@ export const SfCallToAction = ({ classname, title, description, background, butt
       {customButton && customButton}
     </section>
   );
+};
+
+SfCallToAction.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  buttonText: PropTypes.string,
+  background: PropTypes.string,
 };
 
 SfCallToAction.defaultProps = {

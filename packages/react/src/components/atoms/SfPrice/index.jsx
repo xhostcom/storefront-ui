@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfPrice.scss';
 
 export const SfPrice = ({ classname, special, regular }) => {
@@ -12,7 +13,18 @@ export const SfPrice = ({ classname, special, regular }) => {
   );
 };
 
+SfPrice.propTypes = {
+  regular: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  special: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
+
 SfPrice.defaultProps = {
+  /**
+   * Regular/old price value. Crossed out if `special` is provided
+   */
   regular: null,
+  /**
+   * Special price value
+   */
   special: null,
 };

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { SfImage } from '../../atoms';
 import classnames from 'classnames';
 import Glide from '@glidejs/glide';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfGallery.scss';
 
 export const SfGallery = ({ current, images, sliderOptions }) => {
@@ -66,6 +67,12 @@ export const SfGallery = ({ current, images, sliderOptions }) => {
       </div>
     </div>
   );
+};
+
+SfGallery.propTypes = {
+  images: PropTypes.array,
+  current: PropTypes.number,
+  sliderOptions: PropTypes.object,
 };
 
 SfGallery.defaultProps = {

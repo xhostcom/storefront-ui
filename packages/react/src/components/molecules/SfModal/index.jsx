@@ -1,6 +1,7 @@
 import React from 'react';
 import { SfOverlay, SfIcon } from '../../atoms';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfModal.scss';
 
@@ -37,6 +38,15 @@ export const SfModal = ({
       </CSSTransition>
     </section>
   );
+};
+
+SfModal.propTypes = {
+  visible: PropTypes.bool,
+  cross: PropTypes.bool,
+  overlay: PropTypes.bool,
+  persistent: PropTypes.bool,
+  transitionOverlay: PropTypes.oneOf(['fade', 'slide', 'collapse', 'fade-slide', 'fade-collapse']),
+  transitionModal: PropTypes.oneOf(['fade', 'slide', 'collapse', 'fade-slide', 'fade-collapse']),
 };
 
 SfModal.defaultProps = {

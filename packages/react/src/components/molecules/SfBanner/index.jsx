@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { SfButton } from '../../atoms';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfBanner.scss';
 
 export const SfBanner = ({
@@ -32,6 +33,15 @@ export const SfBanner = ({
       </div>
     </section>
   );
+};
+
+SfBanner.propTypes = {
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  buttonText: PropTypes.string,
+  background: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 SfBanner.defaultProps = {

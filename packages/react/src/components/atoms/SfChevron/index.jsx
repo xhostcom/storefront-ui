@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfChevron.scss';
 
 export const SfChevron = ({ children, classname }) => {
@@ -14,4 +15,8 @@ export const SfChevron = ({ children, classname }) => {
       )}
     </div>
   );
+};
+
+SfChevron.propTypes = {
+  classname: PropTypes.string,
 };

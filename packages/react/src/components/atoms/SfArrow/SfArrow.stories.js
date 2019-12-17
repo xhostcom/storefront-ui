@@ -42,6 +42,6 @@ storiesOf('Atoms|Arrow', module)
         ),
       )}
     >
-      <SfIcon icon="chevron_left" size="12px" viewBox="0 0 14 14" />
+      <SfIcon icon="chevron_left" classname="sf-arrow__icon" size="12px" viewBox="0 0 14 14" />
     </SfArrow>
   ));

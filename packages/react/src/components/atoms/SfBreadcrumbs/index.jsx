@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfBreadcrumbs.scss';
 
 export const SfBreadcrumbs = ({ breadcrumbs, linkStyle, currentStyle }) => {
@@ -28,6 +29,13 @@ export const SfBreadcrumbs = ({ breadcrumbs, linkStyle, currentStyle }) => {
   );
 };
 
+SfBreadcrumbs.propTypes = {
+  breadcrumb: PropTypes.array,
+};
+
 SfBreadcrumbs.defaultProps = {
+  /**
+   * List of breadcrumbs (array of nested objects: `[ { text, route } ]`)
+   */
   breadcrumb: [],
 };

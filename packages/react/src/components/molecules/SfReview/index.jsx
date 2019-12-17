@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import { SfRating } from '../../atoms';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfReview.scss';
 
 export const SfReview = ({ author, date, message, charLimit, readMoreText, hideFullText, maxRating, rating }) => {
@@ -57,6 +58,17 @@ export const SfReview = ({ author, date, message, charLimit, readMoreText, hideF
       )}
     </section>
   );
+};
+
+SfReview.propTypes = {
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  author: PropTypes.string,
+  date: PropTypes.string,
+  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+  maxRating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  charLimit: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+  readMoreText: PropTypes.string,
+  hideFullText: PropTypes.string,
 };
 
 SfReview.defaultProps = {

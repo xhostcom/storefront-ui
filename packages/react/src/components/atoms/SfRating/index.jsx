@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '@storefront-ui/shared/styles/components/SfRating.scss';
 
 export const SfRating = ({ max, score, positiveIcon, negativeIcon }) => {
@@ -57,7 +58,18 @@ export const SfRating = ({ max, score, positiveIcon, negativeIcon }) => {
   );
 };
 
+SfRating.propTypes = {
+  max: PropTypes.number,
+  score: PropTypes.number,
+};
+
 SfRating.defaultProps = {
+  /**
+   * Maximum score
+   */
   max: 5,
+  /**
+   * Score (obviously must be less than maximum)
+   */
   score: 1,
 };
