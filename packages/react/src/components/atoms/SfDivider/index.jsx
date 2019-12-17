@@ -1,8 +1,6 @@
-import React from "react";
-import '@storefront-ui/shared/styles/components/SfDivider.scss'
+import React from 'react';
+import '@storefront-ui/shared/styles/components/SfDivider.scss';
 
-export const SfDivider= () => {
-  return (
-    <div className="sf-divider" />
-  );
+export const SfDivider = () => {
+  return <div className="sf-divider" />;
 };

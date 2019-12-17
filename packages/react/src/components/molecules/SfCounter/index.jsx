@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { SfIcon } from "../../atoms";
+import React, { useState, useEffect } from 'react';
+import { SfIcon } from '../../atoms';
 import classnames from 'classnames';
 import '@storefront-ui/shared/styles/components/SfCounter.scss';
 
@@ -15,32 +15,28 @@ export const SfCounter = ({
   type,
   placeholder,
   disabled,
-  required, 
+  required,
   delimiter,
   iconUp,
-  iconDown
+  iconDown,
 }) => {
-  const [currentValue, setCurrentValue] = useState(0)
+  const [currentValue, setCurrentValue] = useState(0);
 
   useEffect(() => {
-    setCurrentValue(setCurrentVal(parseNumber(value)))
-  }, [value])
+    setCurrentValue(setCurrentVal(parseNumber(value)));
+  }, [value]);
 
   useEffect(() => {
     if (currentValue > max) {
-      setCurrentValue(max)
+      setCurrentValue(max);
     } else if (currentValue < min) {
-      setCurrentValue(min)
+      setCurrentValue(min);
     }
-  }, [min, max])
+  }, [min, max]);
 
   const currentVal = () => {
-    return currentValue || currentValue === 0
-      ? currentValue
-      : autoFill
-        ? parseNumber(value)
-        : null
-  }
+    return currentValue || currentValue === 0 ? currentValue : autoFill ? parseNumber(value) : null;
+  };
 
   const keypress = (e) => {
     if (e && e.key) {
@@ -55,12 +51,12 @@ export const SfCounter = ({
         // case "7":
         // case "8":
         // case "9":
-        case "ArrowUp":
-          increase()
-          return
-        case "ArrowDown":
-          decrease()
-          return
+        case 'ArrowUp':
+          increase();
+          return;
+        case 'ArrowDown':
+          decrease();
+          return;
         // case "Enter":
         //   return true;
         // case delimiter:
@@ -68,18 +64,18 @@ export const SfCounter = ({
         //     return true;
         //   }
         default:
-          return
+          return;
       }
       //e.preventDefault();
     }
-  }
+  };
 
   const parseNumber = (v) => {
     switch (typeof v) {
-      case "string":
-        if (typeof thousands === "string" && thousands !== "") {
+      case 'string':
+        if (typeof thousands === 'string' && thousands !== '') {
           // remove thousands separator first
-          v = v.replace(new RegExp(thousands, "g"), "");
+          v = v.replace(new RegExp(thousands, 'g'), '');
         }
         if (precision) {
           let parts = value.split(delimiter, 2);
@@ -92,37 +88,34 @@ export const SfCounter = ({
           if (decimalPlaces > precision) {
             // user may have added digit at the end of input
             let digits = parts[0] + parts[1];
-            v =
-              digits.slice(0, -precision) +
-              "." +
-              digits.slice(-precision);
-          } else if (delimiter !== ".") {
+            v = digits.slice(0, -precision) + '.' + digits.slice(-precision);
+          } else if (delimiter !== '.') {
             // just fix the delimiter before parsing to float
-            v = v.replace(delimiter, ".");
+            v = v.replace(delimiter, '.');
           }
           return parseFloat(v);
         }
         // no decimal precision: integer value
         return parseInt(v, 10);
-      case "number":
+      case 'number':
         if (!isNaN(v)) {
           return v;
         }
     }
-    return min || 0
-  }
+    return min || 0;
+  };
 
   const setCurrentVal = (val) => {
-    if (typeof val === "number") {
+    if (typeof val === 'number') {
       // check minimum and maximum
-      if (typeof min === "number" && val < min) {
-        return min
-      } else if (typeof max === "number" && val > max) {
-        return max
+      if (typeof min === 'number' && val < min) {
+        return min;
+      } else if (typeof max === 'number' && val > max) {
+        return max;
       }
     }
-    return val
-  }
+    return val;
+  };
 
   // const get = () => {
   //   if (typeof currentValue === "number") {
@@ -163,63 +156,62 @@ export const SfCounter = ({
   // }
 
   const increase = () => {
-    setCurrentValue(val => setCurrentVal(val + step))
-  }
+    setCurrentValue((val) => setCurrentVal(val + step));
+  };
 
   const decrease = () => {
-    setCurrentValue(val => setCurrentVal(val - step))
-  }
+    setCurrentValue((val) => setCurrentVal(val - step));
+  };
 
   const onChangeHandler = (ev) => {
-    const newVal = parseNumber(ev.target.value)
-    setCurrentValue(setCurrentVal(newVal))
-  }
-
+    const newVal = parseNumber(ev.target.value);
+    setCurrentValue(setCurrentVal(newVal));
+  };
 
   return (
-    <div className={classnames("sf-counter", classname)}>
-      <div
-        className="sf-counter__control sf-counter__control--down"
-        onClick={() => decrease()}>
-          {!iconDown && <SfIcon icon="chevron_left" size="23px" />}
-          {iconDown && iconDown}
+    <div className={classnames('sf-counter', classname)}>
+      <div className="sf-counter__control sf-counter__control--down" onClick={() => decrease()}>
+        {!iconDown && <SfIcon icon="chevron_left" size="23px" />}
+        {iconDown && iconDown}
       </div>
-        <input
-          className="sf-counter__field"
-          aria-label="current value"
-          onKeyDown={keypress}
-          value={currentVal()}
-          onChange={onChangeHandler}
-          type={type}
-          name={name}
-          required={required}
-          disabled={disabled}
-          placeholder={placeholder}/>
+      <input
+        className="sf-counter__field"
+        aria-label="current value"
+        onKeyDown={keypress}
+        value={currentVal()}
+        onChange={onChangeHandler}
+        type={type}
+        name={name}
+        required={required}
+        disabled={disabled}
+        placeholder={placeholder}
+      />
       <div
         v-if="controls"
         className="sf-counter__control sf-counter__control--up"
         role="button"
         aria-label="Increase"
-        onClick={() => increase()}>
-          {!iconUp && <SfIcon icon="chevron_right" size="23px" />}
-          {iconUp && iconUp}
+        onClick={() => increase()}
+      >
+        {!iconUp && <SfIcon icon="chevron_right" size="23px" />}
+        {iconUp && iconUp}
       </div>
     </div>
-  )
-}
+  );
+};
 
 SfCounter.defaultProps = {
   step: 1,
   // decimal precision
   precision: 0,
   // number format delimiters
-  delimiter: ".",
-  thousands: ",",
+  delimiter: '.',
+  thousands: ',',
   // whether to enable the control buttons
   controls: true,
   // native input attributes
-  type: "text",
+  type: 'text',
   autoFill: false,
   disabled: false,
-  required: false
-}
+  required: false,
+};

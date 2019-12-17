@@ -1,58 +1,61 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { withKnobs, optionsKnob as options, text } from "@storybook/addon-knobs";
-import { SfProperty } from "./";
-import { SfBadge } from "../";
-import classnames from "classnames";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, optionsKnob as options, text } from '@storybook/addon-knobs';
+import { SfProperty } from './';
+import { SfBadge } from '../';
+import classnames from 'classnames';
 
-storiesOf("Atoms|Property", module)
-
+storiesOf('Atoms|Property', module)
   .addDecorator(withKnobs)
-  .add(
-    "Primary",
-      () => <SfProperty classname={classnames(
+  .add('Primary', () => (
+    <SfProperty
+      classname={classnames(
         options(
-          "CSS modifier",
+          'CSS modifier',
           {
-            "sf-property--full-width": "sf-property--full-width"
+            'sf-property--full-width': 'sf-property--full-width',
           },
-          "",
-          { display: "multi-select" }
-        )
+          '',
+          { display: 'multi-select' },
+        ),
       )}
-      name={text("score (prop)", "Material")}
-      value={text("max (prop)", "Cotton")}
+      name={text('score (prop)', 'Material')}
+      value={text('max (prop)', 'Cotton')}
     />
-  )
-  .add(
-    "Name",
-      () => <SfProperty classname={classnames(
+  ))
+  .add('Name', () => (
+    <SfProperty
+      classname={classnames(
         options(
-          "CSS modifier",
+          'CSS modifier',
           {
-            "sf-property--full-width": "sf-property--full-width"
+            'sf-property--full-width': 'sf-property--full-width',
           },
-          "",
-          { display: "multi-select" }
-        )
+          '',
+          { display: 'multi-select' },
+        ),
       )}
-      name={<>{text("score (prop)", "Material")}:<br /></>}
-      value={text("max (prop)", "Cotton")}
+      name={
+        <>
+          {text('score (prop)', 'Material')}:<br />
+        </>
+      }
+      value={text('max (prop)', 'Cotton')}
     />
-  )
-  .add(
-    "Value",
-      () => <SfProperty classname={classnames(
+  ))
+  .add('Value', () => (
+    <SfProperty
+      classname={classnames(
         options(
-          "CSS modifier",
+          'CSS modifier',
           {
-            "sf-property--full-width": "sf-property--full-width"
+            'sf-property--full-width': 'sf-property--full-width',
           },
-          "",
-          { display: "multi-select" }
-        )
+          '',
+          { display: 'multi-select' },
+        ),
       )}
-      name={text("score (prop)", "Material")}
-      value={<SfBadge>{text("max (prop)", "Cotton")}</SfBadge>}
+      name={text('score (prop)', 'Material')}
+      value={<SfBadge>{text('max (prop)', 'Cotton')}</SfBadge>}
     />
-  )
+  ));

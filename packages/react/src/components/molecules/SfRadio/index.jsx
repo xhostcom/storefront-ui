@@ -1,20 +1,32 @@
-import React from "react";
-import classnames from "classnames";
-import "@storefront-ui/shared/styles/components/SfRadio.scss";
+import React from 'react';
+import classnames from 'classnames';
+import '@storefront-ui/shared/styles/components/SfRadio.scss';
 
-export const SfRadio = ({ label, description, classname , name, value, required, disabled, selected, onClick, ...restProps}) => {
-
+export const SfRadio = ({
+  label,
+  description,
+  classname,
+  name,
+  value,
+  required,
+  disabled,
+  selected,
+  onClick,
+  ...restProps
+}) => {
   const isChecked = () => {
-    return value === selected
-  }
+    return value === selected;
+  };
 
   return (
-    <div className={classnames({
-      "sf-radio": true,
-      "is-active": isChecked(),
-      "is-disabled": disabled,
-      [classname]: true
-    })}>
+    <div
+      className={classnames({
+        'sf-radio': true,
+        'is-active': isChecked(),
+        'is-disabled': disabled,
+        [classname]: true,
+      })}
+    >
       <input
         type="radio"
         id={value}
@@ -30,8 +42,8 @@ export const SfRadio = ({ label, description, classname , name, value, required,
       <label className="sf-radio__container" onClick={() => onClick(value)}>
         <div
           className={classnames({
-            "is-active": isChecked(),
-            "sf-radio__checkmark": true
+            'is-active': isChecked(),
+            'sf-radio__checkmark': true,
           })}
         />
         <div className="sf-radio__content">
@@ -44,11 +56,11 @@ export const SfRadio = ({ label, description, classname , name, value, required,
 };
 
 SfRadio.defaultProps = {
-  name: "",
-  value: "",
-  label: "",
-  description: "",
+  name: '',
+  value: '',
+  label: '',
+  description: '',
   required: false,
   disabled: false,
-  selected: ""
-}
+  selected: '',
+};

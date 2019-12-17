@@ -8,17 +8,13 @@ module.exports = async ({ config, mode }) => {
   // Make whatever fine-grained changes you need
   config.module.rules.push({
     test: /\.stories\.js?$/,
-    loaders: [require.resolve("@storybook/source-loader")],
-    enforce: "pre"
+    loaders: [require.resolve('@storybook/source-loader')],
+    enforce: 'pre',
   });
-  
+
   config.module.rules.push({
     test: /\.(sa|sc|c)ss$/,
-    loaders: [
-      'style-loader',
-      'css-loader',
-      'sass-loader'
-    ]
+    loaders: ['style-loader', 'css-loader', 'sass-loader'],
   });
 
   // Return the altered config
