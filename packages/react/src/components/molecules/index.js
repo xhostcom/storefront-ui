@@ -16,3 +16,6 @@ export * from './SfGallery';
 export * from './SfSteps';
 export * from './SfReview';
 export * from './SfModal';
+export * from './SfSticky';
+export * from './SfSlidingSection';
+export * from './SfBar';
