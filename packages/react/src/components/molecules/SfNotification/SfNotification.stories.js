@@ -9,7 +9,7 @@ const NotificationWrapper = (props) => {
 
   return (
     <>
-      {/* <SfButton on={() => setOpen(true)}>Show notification</SfButton> */}
+      {/* <SfButton onclick={() => setOpen(true)}>Show notification</SfButton> */}
       <SfNotification
         visible={open}
         title={props.title}

@@ -12,7 +12,7 @@ export const SfBanner = ({
   background,
   buttonText,
   image,
-  on,
+  onclick,
   customButton,
 }) => {
   return (
@@ -25,7 +25,7 @@ export const SfBanner = ({
         {title && <h1 className="sf-banner__title">{title}</h1>}
         {description && <p className="sf-banner__description">{description}</p>}
         {!customButton && (
-          <SfButton classname="sf-banner__call-to-action color-secondary" on={on}>
+          <SfButton classname="sf-banner__call-to-action color-secondary" onclick={onclick}>
             {buttonText}
           </SfButton>
         )}

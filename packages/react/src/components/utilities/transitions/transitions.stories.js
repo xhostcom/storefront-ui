@@ -8,7 +8,7 @@ const Transition = ({ name }) => {
   const [showMessage, setShowMessage] = useState(false);
   return (
     <>
-      <SfButton on={() => setShowMessage((prevState) => !prevState)}>{name}</SfButton>
+      <SfButton onclick={() => setShowMessage((prevState) => !prevState)}>{name}</SfButton>
       <CSSTransition in={showMessage} classNames={name} timeout={300} unmountOnExit>
         <p>hello</p>
       </CSSTransition>

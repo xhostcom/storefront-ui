@@ -26,7 +26,7 @@ export const SfCheckbox = ({
 
   const inputHandler = (e) => {
     if (typeof selected === 'boolean') {
-      onChange(!selected);
+      onchange(!selected);
     } else {
       let sel = selected.length > 0 ? [...selected] : [];
       if (sel.includes(value)) {
