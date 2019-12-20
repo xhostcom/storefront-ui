@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import '../../utilities/transitions/transitions.scss';
 import '@storefront-ui/shared/styles/components/SfOverlay.scss';
 
-export const SfOverlay = ({ transition, visible, onClick }) => {
+export const SfOverlay = ({ transition, visible, onclick }) => {
   return (
     <CSSTransition in={visible} classNames={transition} timeout={300} unmountOnExit>
-      <div className="sf-overlay" onClick={onClick} />
+      <div className="sf-overlay" onClick={onclick} />
     </CSSTransition>
   );
 };
