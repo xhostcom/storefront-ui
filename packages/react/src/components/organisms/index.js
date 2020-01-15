@@ -4,3 +4,4 @@ export * from './SfSidebar';
 export * from './SfTopBar';
 export * from './SfBottomNavigation';
 export * from './SfBottomNavigation/_internal';
+export * from './SfBannerGrid';

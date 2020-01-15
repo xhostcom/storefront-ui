@@ -24,7 +24,7 @@ export const SfBanner = ({
         {subtitle && <h2 className="sf-banner__subtitle">{subtitle}</h2>}
         {title && <h1 className="sf-banner__title">{title}</h1>}
         {description && <p className="sf-banner__description">{description}</p>}
-        {!customButton && (
+        {!customButton && buttonText && (
           <SfButton classname="sf-banner__call-to-action color-secondary" onclick={onclick}>
             {buttonText}
           </SfButton>
