@@ -6,3 +6,5 @@ export * from './SfBottomNavigation';
 export * from './SfBottomNavigation/_internal';
 export * from './SfBannerGrid';
 export * from './SfProductCard';
+export * from './SfTabs';
+export * from './SfTable';
