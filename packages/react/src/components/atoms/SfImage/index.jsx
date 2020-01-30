@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import classnames from 'classnames';
 import lozad from 'lozad';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
@@ -27,7 +28,11 @@ export const SfImage = (props) => {
   };
 
   return (
-    <div className="sf-image" onMouseOver={() => hoverHandler(true)} onMouseLeave={() => hoverHandler(false)}>
+    <div
+      className={classnames({ 'sf-image': true, 'sf-image--no-size': !props.wrapperStyle })}
+      onMouseOver={() => hoverHandler(true)}
+      onMouseLeave={() => hoverHandler(false)}
+    >
       <CSSTransition
         in={overlay && loaded && props.children ? true : false}
         classNames="fade"
