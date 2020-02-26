@@ -16,3 +16,4 @@ export * from './SfBreadcrumbs';
 export * from './SfBullets';
 export * from './SfInput';
 export * from './SfCheckbox';
+export * from './SfQuantitySelector';

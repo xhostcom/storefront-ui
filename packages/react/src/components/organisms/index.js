@@ -8,3 +8,4 @@ export * from './SfBannerGrid';
 export * from './SfProductCard';
 export * from './SfTabs';
 export * from './SfTable';
+export * from './SfCollectedProduct';
