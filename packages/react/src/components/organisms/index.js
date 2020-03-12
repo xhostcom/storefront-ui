@@ -9,3 +9,5 @@ export * from './SfProductCard';
 export * from './SfTabs';
 export * from './SfTable';
 export * from './SfCollectedProduct';
+export * from './SfHero';
+export * from './SfHero/_internal'; 
