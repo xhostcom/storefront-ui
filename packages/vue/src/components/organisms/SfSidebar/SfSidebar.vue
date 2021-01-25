@@ -10,14 +10,11 @@
         class="sf-sidebar__aside"
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
-        <slot name="bar">
-          <SfBar
-            :title="title"
-            class="smartphone-only"
-            :back="true"
-            @click:back="close"
-          />
-        </slot>
+        <div ref="contentTopSmartphone" class="smartphone-only">
+          <slot name="bar">
+            <SfBar :title="title" :back="true" @click:back="close" />
+          </slot>
+        </div>
         <!--@slot Use this slot to replace close icon.-->
         <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
@@ -29,7 +26,11 @@
             @click="close"
           />
         </slot>
-        <div v-if="title || hasTop" class="sf-sidebar__top">
+        <div
+          v-if="title || hasTop"
+          ref="contentTopDesktop"
+          class="sf-sidebar__top"
+        >
           <!--@slot Use this slot to replace SfHeading component.-->
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
@@ -37,7 +38,7 @@
               :title="title"
               :description="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
+              class="sf-heading--left sf-heading--no-underline sf-sidebar__title"
             />
           </slot>
           <!--@slot Use this slot to add sticky top content.-->
@@ -54,7 +55,7 @@
           </div>
         </SfScrollable>
         <!--@slot Use this slot to place content to sticky bottom.-->
-        <div v-if="hasBottom" class="sf-sidebar__bottom">
+        <div v-if="hasBottom" ref="contentBottom" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
         </div>
       </aside>
@@ -160,9 +161,20 @@ export default {
         if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
-            disableBodyScroll(this.$refs.content);
+            disableBodyScroll(this.$refs.sidebarAside);
+            console.log(
+              window.innerHeight,
+              this.$refs.contentTopDesktop.offsetHeight,
+              this.$refs.contentBottom.offsetHeight
+            );
             if (this.$slots.default) {
-              this.setMaxHeight = `${this.$refs.sidebarAside.offsetHeight.toString()}px`;
+              this.setMaxHeight = `${(
+                window.innerHeight -
+                this.$refs.contentTopSmartphone.offsetHeight -
+                this.$refs.contentTopDesktop.offsetHeight -
+                this.$refs.contentBottom.offsetHeight
+              ).toString()}px`;
+              console.log(this.setMaxHeight);
             }
           });
           document.addEventListener("keydown", this.keydownHandler);
@@ -173,6 +185,12 @@ export default {
       },
       immediate: true,
     },
+  },
+  mounted() {
+    this.classHandler();
+  },
+  updated() {
+    this.classHandler();
   },
   methods: {
     close() {
